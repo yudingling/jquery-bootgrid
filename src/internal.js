@@ -301,8 +301,8 @@ function renderActions()
     {
         var css = this.options.css,
             selector = getCssSelector(css.actions),
-            headerActions = this.header.find(selector),
-            footerActions = this.footer.find(selector);
+            headerActions = this.options.navigation & 1 ? this.header.find(selector) : [],
+            footerActions = this.options.navigation & 2 ? this.footer.find(selector) : [];
 
         if ((headerActions.length + footerActions.length) > 0)
         {
@@ -384,8 +384,8 @@ function renderInfos()
     if (this.options.navigation !== 0)
     {
         var selector = getCssSelector(this.options.css.infos),
-            headerInfos = this.header.find(selector),
-            footerInfos = this.footer.find(selector);
+            headerInfos = this.options.navigation & 1 ? this.header.find(selector) : [],
+            footerInfos = this.options.navigation & 2 ? this.footer.find(selector) : [];
 
         if ((headerInfos.length + footerInfos.length) > 0)
         {
@@ -420,8 +420,8 @@ function renderPagination()
     if (this.options.navigation !== 0)
     {
         var selector = getCssSelector(this.options.css.pagination),
-            headerPagination = this.header.find(selector)._bgShowAria(this.rowCount !== -1),
-            footerPagination = this.footer.find(selector)._bgShowAria(this.rowCount !== -1);
+            headerPagination = this.options.navigation & 1 ? this.header.find(selector)._bgShowAria(this.rowCount !== -1) : [],
+            footerPagination = this.options.navigation & 1 ? this.footer.find(selector)._bgShowAria(this.rowCount !== -1) : [];
 
         if (this.rowCount !== -1 && (headerPagination.length + footerPagination.length) > 0)
         {
@@ -679,8 +679,8 @@ function renderSearchField()
     {
         var css = this.options.css,
             selector = getCssSelector(css.search),
-            headerSearch = this.header.find(selector),
-            footerSearch = this.footer.find(selector);
+            headerSearch = this.options.navigation & 1 ? this.header.find(selector) : [],
+            footerSearch = this.options.navigation & 2 ? this.footer.find(selector) : [];
 
         if ((headerSearch.length + footerSearch.length) > 0)
         {
